@@ -1,0 +1,49 @@
+
+// TOGGLE EVENTS TESTING
+
+
+// MODEL 1 - Works fine, but sometimes fails...
+
+  $( ".saibamais01_conteudo" ).hide();
+	$( ".saibamais01" ).on( "click", function() {
+		     $(".saibamais01_conteudo").toggle("fast");
+  				return false;     				
+	});
+
+
+// MODEL 2 - More robust, ensure that the class is added/removed if the content is visible/invisible
+
+      // Turns visible none to the matched element
+  		$(".saibamais01_conteudo").hide(); 
+  
+      //Click function in matched element
+      $(".saibamais01").click(function(){    
+
+		        if($(".saibamais01 .saibamais01_conteudo").attr("class") === "saibamais01_conteudo"){
+		            $(this).children(".saibamais01_conteudo").addClass("saibamais01_conteudo_ativo");
+		            $(this).children(".saibamais01_conteudo").removeClass("saibamais01_conteudo");
+		            alert("tested true");
+            }else{
+		            $(this).children(".saibamais01_conteudo_ativo").addClass("saibamais01_conteudo");
+		            $(this).children(".saibamais01_conteudo_ativo").removeClass("saibamais01_conteudo_ativo");
+					      //alert("tested false");
+		        }
+
+       			 $("#saibamais01_conteudo").slideToggle("fast");
+         		return false;
+    	});
+      
+// MODEL 3 - More robust AND more compact, laughs..
+      
+      $('#title').click(function() {
+          $('#content').toggle();
+          
+          if ($('#content:visible').size() != 0) 
+          {
+              $(this).addClass('active');
+          }
+          else
+          {
+              $(this).removeClass('active');
+          }
+});
