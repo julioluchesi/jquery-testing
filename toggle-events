@@ -5,10 +5,11 @@
 // MODEL 1 - Works fine, but sometimes fails...
 
   $( ".saibamais01_conteudo" ).hide();
-	$( ".saibamais01" ).on( "click", function() {
+	$( ".saibamais01" ).on( "click", function() {  // remember: MIN-HEIGHT must be set in this element on css file! 
 		     $(".saibamais01_conteudo").toggle("fast");
   				return false;     				
 	});
+
 
 
 // MODEL 2 - More robust, ensure that the class is added/removed if the content is visible/invisible
@@ -17,7 +18,7 @@
   		$(".saibamais01_conteudo").hide(); 
   
       //Click function in matched element
-      $(".saibamais01").click(function(){    
+      $(".saibamais01").click(function(){    // remember: MIN-HEIGHT must be set in this element on css file! 
 
 		        if($(".saibamais01 .saibamais01_conteudo").attr("class") === "saibamais01_conteudo"){
 		            $(this).children(".saibamais01_conteudo").addClass("saibamais01_conteudo_ativo");
@@ -33,10 +34,12 @@
          		return false;
     	});
       
+      
+      
 // MODEL 3 - More robust AND more compact, laughs..
       
-      $('#title').click(function() {
-          $('#content').toggle();
+      $('#title').click(function() {  // remember: MIN-HEIGHT must be set in this element on css file! 
+          $('#content').toggle(); 
           
           if ($('#content:visible').size() != 0) 
           {
